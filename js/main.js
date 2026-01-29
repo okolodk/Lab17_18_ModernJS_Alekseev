@@ -1,30 +1,34 @@
-const { use } = require("react");
+import {greet, add, PI} from "./utils.js"
+import { multiply as умножить} from "./utils.js";
+import * as Utils from "./utils.js"
+import * as math from "./math.js"
+// const { use } = require("react");
 
-console.log("\n=== Деструктуризация массивов ===");
+// console.log("\n=== Деструктуризация массивов ===");
 
-const colors = ["red", "green", "blue"];
+// const colors = ["red", "green", "blue"];
 
-const color1 = colors[0];
-const color2 = colors[1];
+// const color1 = colors[0];
+// const color2 = colors[1];
 
-console.log(color1, color2)
+// console.log(color1, color2)
 
-const [firstColor, secondColor, thirdColor] = colors;
-console.log(firstColor, secondColor, thirdColor);
+// const [firstColor, secondColor, thirdColor] = colors;
+// console.log(firstColor, secondColor, thirdColor);
 
-const [primary, , tertiary] = colors;
-console.log(primary, tertiary);
+// const [primary, , tertiary] = colors;
+// console.log(primary, tertiary);
 
-const [c1, c2, c3, c4 = "yellow"] = colors;
-console.log(c4);
+// const [c1, c2, c3, c4 = "yellow"] = colors;
+// console.log(c4);
 
-console.log("\n=== Деструктуризация объектов ===");
+// console.log("\n=== Деструктуризация объектов ===");
 
-const user = {
-    name: "Alisa",
-    age: 25,
-    city: "Москва",
-}
+// const user = {
+//     name: "Alisa",
+//     age: 25,
+//     city: "Москва",
+// }
 // const userName = user.name;
 // const userAge = user.age;
 // console.log(userName, userAge);
@@ -125,29 +129,43 @@ console.log("Rest оператор");
 // console.log("Second number:", second);
 // console.log("Остольные числа:", rest);
 
-const arr1 = [1, 2, 3];
-const arr2 = [4, 5, 6];
+// const arr1 = [1, 2, 3];
+// const arr2 = [4, 5, 6];
 
-const combined = [...arr1, ...arr2];
+// const combined = [...arr1, ...arr2];
 
-function  findMax(...numbers) {
-    let maxEl = -1000;
-    for (let i =0; i < numbers.length; i++) {
-        if ( maxEl < numbers[i]) {
-            maxEl = numbers[i];
-        }
-    }
-    return maxEl;
-}
+// function  findMax(...numbers) {
+//     let maxEl = -1000;
+//     for (let i =0; i < numbers.length; i++) {
+//         if ( maxEl < numbers[i]) {
+//             maxEl = numbers[i];
+//         }
+//     }
+//     return maxEl;
+// }
 
-const person = {
-    name: "Ivan",
-    age: 30,
-}
-const address = {
-    city: "Санкт-Петербург",
-    street: "Невский проспект",
-}
+// const person = {
+//     name: "Ivan",
+//     age: 30,
+// }
+// const address = {
+//     city: "Санкт-Петербург",
+//     street: "Невский проспект",
+// }
 
-const fullInfo = {...person, ...address};
-console.log("Полная информация:", fullInfo);
+// const fullInfo = {...person, ...address};
+// console.log("Полная информация:", fullInfo);
+
+console.log("Модули");
+console.log(greet("Алексей"));
+console.log("5 + 3", add(5, 3));
+console.log("Значение PI:", PI);
+
+console.log("4 * 7 =", умножить(4, 7));
+
+console.log(Utils.greet("Мария"));
+console.log("Умножение:", Utils.multiply(3, 9));
+
+console.log(math.cube(4));
+console.log(math.square(36));
+console.log(math.E);
