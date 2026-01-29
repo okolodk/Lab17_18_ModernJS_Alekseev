@@ -322,6 +322,7 @@ console.log("Rest оператор");
 console.log("Fetch API");
 
 // async function getUsers() {
+
 //     try {
 //         const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
@@ -356,27 +357,113 @@ console.log("Fetch API");
 // getUserById(1);
 
 
-async function createPost() {
-    try {
-        const newPost = {
-            title: "Моя первая запись",
-            body: "Это содержание моец первой записи в блоге",
-            userId: 1,
-        };
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newPost),
-        });
+// async function createPost() {
+//     try {
+//         const newPost = {
+//             title: "Моя первая запись",
+//             body: "Это содержание моец первой записи в блоге",
+//             userId: 1,
+//         };
+//         const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify(newPost),
+//         });
 
-        const createdPost = await response.json();
-        console.log("Создана новая запись:");
-        console.log("ID:", createdPost.id);
-        console.log("Заголовок:", createdPost.title);
-    } catch (error) {
-        console.log("Ошибка при создании записи:", error.message);
+//         const createdPost = await response.json();
+//         console.log("Создана новая запись:");
+//         console.log("ID:", createdPost.id);
+//         console.log("Заголовок:", createdPost.title);
+//     } catch (error) {
+//         console.log("Ошибка при создании записи:", error.message);
+//     }
+// }
+// createPost();
+
+
+// console.log("Optional Chaining");
+
+// const user1 = {
+//     name: "Андрей",
+//     address: {
+//         city: "Волжский",
+//         street: "Пушкина"б
+//     },
+// }
+// const user2 = {
+//     name: "Дмитрий"
+// }
+
+// const city2 = user2.address?.city;
+// console.log("Город (новый способ):", city2);
+
+// const street = user1.address?.street;
+// console.log("Улица:", street);
+
+// const admin = {
+//     name: "Администратор",
+//     permissions: {
+//         canDelete: () => true,
+//     },
+// };
+
+// const guest = {
+//     name: "Гость",
+// }
+
+// console.log("Админ может удалять?", admin.permissions?.canDelete?.());
+// console.log("Гость может удалять?", guest.permissions?.canDelete?.());
+
+// const company = {
+//     name: "Tech Corp",
+//     employees: [
+//         {name: "Надежда", role: "Developer"},
+//         {name: "Анна", role: "Designer"},
+//     ],
+// };
+// const startup = {
+//     name: "New Startup"
+// };
+
+// console.log("Первый сотрудник:", company.employees?.[0]?.name);
+// console.log("Первый сотрудник стартапа:", startup.employees?.[0]?.name);
+
+// console.log("Nullish Coalescing");
+
+// const vvalue1 = 0;
+// const vvalue2 = "";
+// const vvalue3 = false;
+// const vvalue4 = null;
+// const vvalue5 = undefined;
+
+// console.log('value1 || "default":', value1 || "default");
+// console.log('value2 || "default":', value2 || "default");
+// console.log('value3 || "default":', value3 || "default");
+
+// console.log('value1 ?? "default":', value1 ?? "default");
+// console.log('value2 ?? "default":', value2 ?? "default");
+// console.log('value3 ?? "default":', value3 ?? "default");
+// console.log('value4 ?? "default":', value4 ?? "default");
+// console.log('value5 ?? "default":', value5 ?? "default");
+
+const apiResponse = {
+    data: {
+        user: {
+            profile: {
+                settings: {
+                    language: "ru",
+                }
+            }
+        }
     }
 }
-createPost();
+const language = apiResponse?.data?.user?.profile?.settings?.language ?? "en";
+settings?.language ?? "en";
+console.log("Язык:", language);
+
+const emptyResponse = {};
+const defaultLanguage = emptyResponse?.data?.user?.profile?.settings?.language  ?? "en";
+console.log("ЯзыкS по умолчанию:", defaultLanguage);
+
